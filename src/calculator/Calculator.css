@@ -25,3 +25,8 @@ th, td {
     font-weight: bold;
     text-align: left;
 }
+
+.toggle-switch {
+    vertical-align: middle;
+    margin-left: 4px;
+}

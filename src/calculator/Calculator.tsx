@@ -2,6 +2,7 @@ import './Calculator.css'
 
 import type {Dispatch, SetStateAction} from "react";
 import type {CalculatorField} from "./fields.ts"
+import {Switch, ToggleButton, ToggleButtonGroup} from "@mui/material";
 
 interface CalculatorProps {
     setScore: Dispatch<SetStateAction<number>>;
@@ -13,30 +14,60 @@ const Calculator: React.FC<CalculatorProps> = ({setScore}) => {
         setScore(prevScore => prevScore + changeAmount);
     }
 
+    const handleSwitchChange = (event: React.ChangeEvent<HTMLInputElement>, checked: boolean, value: number) => {
+        console.log('Switch changed:', event.target.name, checked);
+        if (checked) {
+            changeScore(value);
+        } else {
+            changeScore(-value);
+        }
+    }
     return (
         <div className="calculator">
             <table border={1}>
                 <thead>
                 <tr className="calc-row">
-                        <th>Clinical Finding</th>
-                        <th>Value</th>
-                    </tr>
+                    <th>Clinical Finding</th>
+                    <th>Value</th>
+                </tr>
                 </thead>
                 <tbody>
-                    { calcFields.map((calcField: CalculatorField) => (
-                        <tr key={calcField.label} className="calc-row">
-                            <td className="field-label">
-                                { calcField.label }
-                            </td>
-                            <td className="field-value">
-                                {calcField.values.length > 1 ? (
-                                    <p>Slider Component</p>
-                                ) : (
-                                    <p>Toggle Component</p>
-                                )}
-                            </td>
-                        </tr>
-                    ))}
+                {calcFields.map((calcField: CalculatorField) => (
+                    <tr key={calcField.label} className="calc-row">
+                        <td className="field-label">
+                            {calcField.label}
+                        </td>
+                        <td className="field-value">
+                            {calcField.values.length > 1 ? (
+                                <ToggleButtonGroup
+                                    color="primary"
+                                    exclusive
+                                    required={true}
+                                    /*                                            onChange={handleChange} */
+                                    aria-label={calcField.label}
+                                >
+                                    {calcField.values.map((option: FieldValues) => (
+                                            <ToggleButton value={option.value} sx={{
+                                                color: 'white',
+                                                backgroundColor: '#444',
+                                                borderColor: '#777'
+                                            }}>
+                                                {option.label}
+                                            </ToggleButton>
+                                        )
+                                    )}
+                                </ToggleButtonGroup>
+                            ) : (
+                                <span>
+                                            <Switch
+                                                onChange={(event, checked) => handleSwitchChange(event, checked, calcField.values[0].value)}
+                                            />
+                                            <span>{calcField.values[0].value}</span>
+                                        </span>
+                            )}
+                        </td>
+                    </tr>
+                ))}
                 </tbody>
             </table>
         </div>
@@ -66,7 +97,7 @@ const calcFields: CalculatorField[] = [
         values: [
             { label: '≥85', value: 0 },
             { label: '30-59', value: 1 },
-            { label: '<30>', value: 2.5 }
+            {label: '<30', value: 2.5}
         ],
         required: false
     },
@@ -98,7 +129,7 @@ const calcFields: CalculatorField[] = [
     },
     {
         label: 'Platelet count, (cells/L <50 x 10^9)',
-        values: [ { label: '<50 x 10<sup>9</sup>', value: 4 } ],
+        values: [{label: '<50 x 10^9', value: 4}],
         required: false
     },
     {

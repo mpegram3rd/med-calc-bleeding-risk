@@ -9,6 +9,7 @@ export default function CalculatorContainer() {
     return (
         <div className="calc-container">
             <Calculator setScore={setScore}/>
+            <p>Score: {score}</p>
             <Advice/>
         </div>
 
