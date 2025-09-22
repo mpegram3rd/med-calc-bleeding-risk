@@ -2,33 +2,3 @@
     min-width: 50%;
 }
 
-table {
-    border: 0 none;
-    border-collapse: collapse;
-    margin-right: 20px;
-}
-
-th {
-    font: bold 20px Arial, sans-serif;
-}
-
-th, td {
-    padding: 3px;
-    margin: 3px;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 1px solid #ccc;
-}
-
-.field-label {
-    font-weight: bold;
-    text-align: left;
-}
-
-.toggle-switch {
-    vertical-align: middle;
-    margin-left: 4px;
-}
-
-.Mui

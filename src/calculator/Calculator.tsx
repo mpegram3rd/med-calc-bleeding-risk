@@ -2,7 +2,8 @@ import './Calculator.css'
 
 import type {Dispatch, SetStateAction} from "react";
 import type {CalculatorField} from "./fields.ts"
-import {Switch, ToggleButton, ToggleButtonGroup} from "@mui/material";
+import {Switch, Table} from "@mantine/core";
+import CustomSegmentedControl from "./CustomSegmentedControl.tsx";
 
 interface CalculatorProps {
     setScore: Dispatch<SetStateAction<number>>;
@@ -14,62 +15,48 @@ const Calculator: React.FC<CalculatorProps> = ({setScore}) => {
         setScore(prevScore => prevScore + changeAmount);
     }
 
-    const handleSwitchChange = (event: React.ChangeEvent<HTMLInputElement>, checked: boolean, value: number) => {
-        console.log('Switch changed:', event.target.name, checked);
-        if (checked) {
-            changeScore(value);
-        } else {
-            changeScore(-value);
-        }
-    }
     return (
         <div className="calculator">
-            <table border={1}>
-                <thead>
-                <tr className="calc-row">
-                    <th>Clinical Finding</th>
-                    <th>Value</th>
-                </tr>
-                </thead>
-                <tbody>
-                {calcFields.map((calcField: CalculatorField) => (
-                    <tr key={calcField.label} className="calc-row">
-                        <td className="field-label">
-                            {calcField.label}
-                        </td>
-                        <td className="field-value">
-                            {calcField.values.length > 1 ? (
-                                <ToggleButtonGroup
-                                    color="primary"
-                                    exclusive={true}
-                                    required={true}
-                                    /*                                            onChange={handleChange} */
-                                    aria-label={calcField.label}
-                                >
-                                    {calcField.values.map((option: FieldValues) => (
-                                            <ToggleButton value={option.value} sx={{
-                                                color: 'white',
-                                                backgroundColor: '#444',
-                                                borderColor: '#777'
-                                            }}>
-                                                {option.label}
-                                            </ToggleButton>
-                                        )
-                                    )}
-                                </ToggleButtonGroup>
-                            ) : (
-                                <span>
-                                            <Switch
-                                                onChange={(event, checked) => handleSwitchChange(event, checked, calcField.values[0].value)}
-                                            />
-                                            <span>{calcField.values[0].value}</span>
-                                        </span>
-                            )}
-                        </td>
-                    </tr>
-                ))}
-                </tbody>
-            </table>
+            <Table>
+                <Table.Thead>
+                    <Table.Tr>
+                        <Table.Th>Evidence</Table.Th>
+                        <Table.Th>Data</Table.Th>
+                    </Table.Tr>
+                </Table.Thead>
+                <Table.Tbody>
+                    {calcFields.map((calcField: CalculatorField) => (
+                        <Table.Tr key={calcField.label}>
+                            <Table.Td>
+                                {calcField.label}{calcField.required ? '*' : ''}
+                                {calcField.note && (
+                                    <div style={{fontSize: '0.8em', color: '#666'}}>{calcField.note}</div>
+                                )}
+                            </Table.Td>
+                            <Table.Td>
+                                {calcField.values.length > 1 ? (
+                                    <CustomSegmentedControl
+                                        options={calcField.values}
+                                        setScore={setScore}
+                                    />
+                                ) : (
+                                    <Switch size="lg"
+                                            color="green"
+                                            onLabel="Yes"
+                                            offLabel="No"
+                                            onChange={(event) => {
+                                                if (event.currentTarget.checked)
+                                                    changeScore(calcField.values[0].value)
+                                                else
+                                                    changeScore(-calcField.values[0].value)
+                                            }}
+                                    />
+                                )}
+                            </Table.Td>
+                        </Table.Tr>
+                    ))}
+                </Table.Tbody>
+            </Table>
         </div>
     );
 }

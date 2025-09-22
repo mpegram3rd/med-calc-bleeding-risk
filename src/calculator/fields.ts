@@ -1,4 +1,4 @@
-export interface FieldValues {
+export interface FieldValue {
     label: string;
     value: number;
 }
@@ -6,7 +6,7 @@ export interface FieldValues {
 export interface CalculatorField {
     label: string;
     note?: string;
-    values: FieldValues[];
+    values: FieldValue[];
     required : boolean ;
 }
 
