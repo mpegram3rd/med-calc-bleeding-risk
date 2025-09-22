@@ -1,9 +1,15 @@
+import {Alert} from "@mantine/core";
+
 export default function Advice() {
     return (
         <div className="advice">
-            <div className="intervention">
-                Intervention will go here
-            </div>
+            <Alert
+                variant="filled"
+                color="green"
+                title="Low Risk"
+            >
+                Intervention will go here.
+            </Alert>
         </div>
     );
 }
