@@ -17,11 +17,11 @@ const Calculator: React.FC<CalculatorProps> = ({setScore}) => {
 
     return (
         <div className="calculator">
-            <Table stickyHeader stickyHeaderOffset={60}>
+            <Table>
                 <Table.Thead>
                     <Table.Tr>
-                        <Table.Th>Clinical Finding</Table.Th>
-                        <Table.Th>Determination</Table.Th>
+                        <Table.Th>Evidence</Table.Th>
+                        <Table.Th>Data</Table.Th>
                     </Table.Tr>
                 </Table.Thead>
                 <Table.Tbody>
