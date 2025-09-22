@@ -6,13 +6,3 @@
     /*gap: 2rem;*/
 }
 
-.calculator table {
-    border: 5px;
-}
-.calc_row {
-    border-bottom: 5px solid #ccc;
-}
-
-.field_label {
-    text-align: left;
-}

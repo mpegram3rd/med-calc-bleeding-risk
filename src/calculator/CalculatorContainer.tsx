@@ -11,5 +11,6 @@ export default function CalculatorContainer() {
             <Calculator setScore={setScore}/>
             <Advice/>
         </div>
+
     );
 }

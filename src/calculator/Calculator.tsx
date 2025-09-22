@@ -1,5 +1,7 @@
+import './Calculator.css'
+
 import type {Dispatch, SetStateAction} from "react";
-import type { CalculatorField } from "./fields.ts"
+import type {CalculatorField} from "./fields.ts"
 
 interface CalculatorProps {
     setScore: Dispatch<SetStateAction<number>>;
@@ -13,21 +15,25 @@ const Calculator: React.FC<CalculatorProps> = ({setScore}) => {
 
     return (
         <div className="calculator">
-            <table>
+            <table border={1}>
                 <thead>
-                    <tr className="calc_row">
+                <tr className="calc-row">
                         <th>Clinical Finding</th>
                         <th>Value</th>
                     </tr>
                 </thead>
                 <tbody>
                     { calcFields.map((calcField: CalculatorField) => (
-                        <tr key={ calcField.label } className="calc_row">
-                            <td className="field_label">
+                        <tr key={calcField.label} className="calc-row">
+                            <td className="field-label">
                                 { calcField.label }
                             </td>
-                            <td className="field_value">
-                                { calcField.values[0].value }
+                            <td className="field-value">
+                                {calcField.values.length > 1 ? (
+                                    <p>Slider Component</p>
+                                ) : (
+                                    <p>Toggle Component</p>
+                                )}
                             </td>
                         </tr>
                     ))}
