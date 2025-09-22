@@ -2,7 +2,8 @@ import './Calculator.css'
 
 import type {Dispatch, SetStateAction} from "react";
 import type {CalculatorField} from "./fields.ts"
-import {SegmentedControl, Switch, Table} from "@mantine/core";
+import {Switch, Table} from "@mantine/core";
+import CustomSegmentedControl from "./CustomSegmentedControl.tsx";
 
 interface CalculatorProps {
     setScore: Dispatch<SetStateAction<number>>;
@@ -27,18 +28,16 @@ const Calculator: React.FC<CalculatorProps> = ({setScore}) => {
                     {calcFields.map((calcField: CalculatorField) => (
                         <Table.Tr key={calcField.label}>
                             <Table.Td>
-                                {calcField.label}
+                                {calcField.label}{calcField.required ? '*' : ''}
+                                {calcField.note && (
+                                    <div style={{fontSize: '0.8em', color: '#666'}}>{calcField.note}</div>
+                                )}
                             </Table.Td>
                             <Table.Td>
                                 {calcField.values.length > 1 ? (
-                                    <SegmentedControl
-                                        defaultValue="none"
-                                        autoContrast={true}
-                                        color="green"
-                                        fullWidth={true}
-                                        data={calcField.values.map((calcValue) => {
-                                            return {label: calcValue.label, value: calcValue.value.toString()}
-                                        })}
+                                    <CustomSegmentedControl
+                                        options={calcField.values}
+                                        setScore={setScore}
                                     />
                                 ) : (
                                     <Switch size="lg"
