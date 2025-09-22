@@ -41,7 +41,7 @@ const Calculator: React.FC<CalculatorProps> = ({setScore}) => {
                             {calcField.values.length > 1 ? (
                                 <ToggleButtonGroup
                                     color="primary"
-                                    exclusive
+                                    exclusive={true}
                                     required={true}
                                     /*                                            onChange={handleChange} */
                                     aria-label={calcField.label}
