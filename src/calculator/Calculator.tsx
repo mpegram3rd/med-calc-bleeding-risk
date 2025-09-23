@@ -17,7 +17,7 @@ const Calculator: React.FC<CalculatorProps> = ({setScore}) => {
 
     return (
         <div className="calculator">
-            <Table>
+            <Table  striped>
                 <Table.Thead>
                     <Table.Tr>
                         <Table.Th>Evidence</Table.Th>

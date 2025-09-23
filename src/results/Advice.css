@@ -1,3 +1,4 @@
 .advice {
     min-width: 40%;
+    overflow-wrap: break-word;
 }
