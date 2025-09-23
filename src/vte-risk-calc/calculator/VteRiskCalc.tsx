@@ -49,11 +49,6 @@ const calcFields: CalculatorField[] = [
         label: 'Age >60 years',
         values: [ { label: 'Yes', value: 1 } ],
         required: false
-    },
-    {
-        label: 'Current cancer',
-        values: [ { label: 'Yes', value: 1 } ],
-        required: false
     }
 ];
 
