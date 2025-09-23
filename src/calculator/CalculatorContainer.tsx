@@ -1,7 +1,7 @@
 import './CalculatorContainer.css'
-import Advice from './Advice.tsx'
 import Calculator from "./Calculator.tsx";
 import {useState} from 'react';
+import ResultsContainer from "../results/ResultsContainer.tsx";
 
 export default function CalculatorContainer() {
     const [score, setScore] = useState<number>(0);
@@ -9,8 +9,7 @@ export default function CalculatorContainer() {
     return (
         <div className="calc-container">
             <Calculator setScore={setScore}/>
-            <p>Score: {score}</p>
-            <Advice/>
+            <ResultsContainer score={score}/>
         </div>
 
     );
