@@ -1,5 +1,5 @@
 import {Alert} from "@mantine/core";
-import type {ScoreProps} from "./score-props.ts";
+import type {ScoreProps} from "../../score/score-props.ts";
 
 const Advice: React.FC<ScoreProps> = ({score}) => {
     return (

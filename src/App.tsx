@@ -18,7 +18,7 @@ function App() {
                 </Tabs.List>
 
                 <Tabs.Panel value="vterisk">
-                    <p>VTE Risk Calculator</p>
+                    <h3>IMPROVE Risk Score for Venous Thromboembolism (VTE)</h3>
                 </Tabs.Panel>
 
                 <Tabs.Panel value="bleedingrisk">
