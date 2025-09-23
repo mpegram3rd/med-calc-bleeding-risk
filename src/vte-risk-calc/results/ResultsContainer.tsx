@@ -9,8 +9,8 @@ const ResultsContainer: React.FC<ScoreProps> = ({score}) => {
         <div className="results-container">
             <Advice score={score}/>
             <Reference
-                url="https://www.mdcalc.com/calc/10465/improve-bleeding-risk-score"
-                description="The original version of this calculator was created by Dr. Hervé Décousus and can be found at MDCalc"
+                url="https://www.mdcalc.com/calc/10349/improve-risk-score-venous-thromboembolism-vte"
+                description="The original version of this calculator was created by by Dr. Alex C. Spyropoulos and can be found at MDCalc"
             />
         </div>
     )
