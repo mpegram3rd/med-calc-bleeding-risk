@@ -20,7 +20,7 @@ const calcFields: CalculatorField[] = [
         label: "Age in Years",
         values: [
             { label: '<40', value: 0 },
-            { label: '40-48', value: 1.5 },
+            { label: '40-84', value: 1.5 },
             { label: '≥85', value: 3.5 }
         ],
         required: true
@@ -36,7 +36,7 @@ const calcFields: CalculatorField[] = [
     {
         label: 'Renal Function (GFR), mL/min/m^2',
         values: [
-            { label: '≥85', value: 0 },
+            { label: '≥60', value: 0 },
             { label: '30-59', value: 1 },
             {label: '<30', value: 2.5}
         ],
