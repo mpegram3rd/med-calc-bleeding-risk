@@ -1,7 +1,7 @@
 import '@mantine/core/styles.css';
 
 import './App.css'
-import BleedingRiskCalc from "./bleeding-calc/calculator/BleedingRiskCalc.tsx";
+import BleedingRiskContainer from "./bleeding-calc/calculator/BleedingRiskContainer.tsx";
 import {MantineProvider, Tabs} from "@mantine/core";
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
 
                 <Tabs.Panel value="bleedingrisk">
                     <h3>IMPROVE Bleeding Risk Score</h3>
-                    <BleedingRiskCalc/>
+                    <BleedingRiskContainer/>
                 </Tabs.Panel>
 
             </Tabs>

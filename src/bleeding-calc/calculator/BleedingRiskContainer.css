@@ -1,0 +1,7 @@
+.calc-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin: 10px auto;
+}
+
