@@ -3,6 +3,7 @@ import '@mantine/core/styles.css';
 import './App.css'
 import BleedingRiskContainer from "./bleeding-calc/calculator/BleedingRiskContainer.tsx";
 import {MantineProvider, Tabs} from "@mantine/core";
+import VteRiskContainer from "./vte-risk-calc/calculator/VteRiskContainer.tsx";
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
 
                 <Tabs.Panel value="vterisk">
                     <h3>IMPROVE Risk Score for Venous Thromboembolism (VTE)</h3>
+                    <VteRiskContainer/>
                 </Tabs.Panel>
 
                 <Tabs.Panel value="bleedingrisk">
