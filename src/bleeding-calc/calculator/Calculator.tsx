@@ -1,7 +1,7 @@
 import './Calculator.css'
 
 import type {Dispatch, SetStateAction} from "react";
-import type {CalculatorField} from "./fields.ts"
+import type {CalculatorField} from "../../models/fields.ts"
 import {Switch, Table} from "@mantine/core";
 import CustomSegmentedControl from "./CustomSegmentedControl.tsx";
 

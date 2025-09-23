@@ -1,5 +1,5 @@
 import {SegmentedControl} from "@mantine/core";
-import type {FieldValue} from "./fields.ts";
+import type {FieldValue} from "../../models/fields.ts";
 import {type Dispatch, type SetStateAction, useState} from "react";
 
 interface CustomSegmentedControlProps {

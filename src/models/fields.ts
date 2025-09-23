@@ -7,6 +7,6 @@ export interface CalculatorField {
     label: string;
     note?: string;
     values: FieldValue[];
-    required : boolean ;
+    required : boolean;
 }
 
