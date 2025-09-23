@@ -1,74 +1,38 @@
-# React + TypeScript + Vite
+# Bleeding Risk / Veinous Thromboembolism (VTE) Medical Calculators
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project sprung out of research my wife is doing for her doctoral degree program.
 
-Currently, two official plugins are available:
+She came across some related medical calculators on the [MDCalc.com](https://www.mdcalc.com/) website
+related to her research. Please visit (and use) the original calculators on MDCalc if you are
+interested in the medical content. This project is not intended to replace or compete with MDCalc
+in any way. It is simply a practice project for me to work on some technical skills.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react)
-  uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc)
-  uses [SWC](https://swc.rs/) for Fast Refresh
+- [Original Bleeding Risk Calculator](https://www.mdcalc.com/calc/10465/improve-bleeding-risk-score) by Dr. Hervé
+  Décousus
+- [Original VTE Calculator](https://www.mdcalc.com/calc/10349/improve-risk-score-venous-thromboembolism-vte) by Dr. Alex
+  C. Spyropoulos
 
-## Expanding the ESLint configuration
+Since these are all frontend calculators I saw this as an opportunity to explore a couple of technical things
+I've wanted to work with a bit to become more familiar with them.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+I initially did a pure "Vibe Coded" implementation of the VTE calculator using Github Co-pilot over
+[in a different repository](https://github.com/mpegram3rd/vte-med-calc). See that repository for more information.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+I was very dissatisfied with how badly the code looked and could see how awful it would be to maintain or modify. I also
+wanted to spend a little time practicing some React with Typescript so decided to use traditional development for
+the "Bleeding Risk" calculator.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+After completing that calculator I decided to refactor it to support multiple calculators and re-created the VTE
+Calculator
+here. This let me lean into making the React components more generic and reusable, which was one of the goals
+of this practice project.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Setup
 
-You can also
-install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x)
-and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom)
-for React-specific lint rules:
+Running this project is pretty easy / straightforward. It was bootstrapped using Vite so all you really
+need to do is:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- `npm install`
+- `npm run dev` to run it in local mode
+- `npm run build` to create a production build
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
