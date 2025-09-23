@@ -1,12 +1,17 @@
 import {Alert} from "@mantine/core";
-import type {ScoreProps} from "./score-props.ts";
+import type {ScoreProps} from "../../score/score-props.ts";
+import {IconCheckbox, IconUrgent} from "@tabler/icons-react";
 
 const Advice: React.FC<ScoreProps> = ({score}) => {
+    const alertIcon = <IconUrgent />;
+    const okIcon = <IconCheckbox />
+
     return (
         <div className="advice">
             <Alert
                 variant="filled"
                 color={ score < 7 ? "green" : "red" }
+                icon={ score < 7 ? okIcon : alertIcon }
                 title={(score < 7 ? "No increased risk of bleeding" : "Increased risk of bleeding") + " Score: " + score}
             >
                 <span>

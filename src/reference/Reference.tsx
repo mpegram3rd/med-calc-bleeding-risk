@@ -1,9 +1,17 @@
-export default function Reference() {
+
+interface ReferenceProps {
+    url: string;
+    description: string
+}
+
+const Reference: React.FC<ReferenceProps> = ({url, description}) => {
     return (
         <div className="reference-link">
-            <a href="https://www.mdcalc.com/calc/10465/improve-bleeding-risk-score" target="_blank">
-                Original version of this calculator was created by Dr. Hervé Décousus at MDCalc
+            <a href={url} target="_blank">
+                {description}
             </a>
         </div>
     );
 }
+
+export default Reference;
